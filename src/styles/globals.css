@@ -2,22 +2,22 @@
 
 :root {
   color-scheme: light;
-  --color-primary: #008b50;
-  --color-secondary: #ffca00;
-  --color-primary-dark: #024426;
-  --color-primary-light: #04b5ac;
-  --color-accent: #1d3475;
-  --color-warm: #e28210;
-  --color-neutral: #f9ead4;
+  --color-primary: #0b7a75;
+  --color-secondary: #51c4b7;
+  --color-primary-dark: #075049;
+  --color-primary-light: #9be8df;
+  --color-accent: #0f9b8c;
+  --color-warm: #f4c95d;
+  --color-neutral: #ecf7f4;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 body {
-  @apply bg-slate-50 text-slate-900;
+  @apply bg-[color:var(--color-neutral)] text-slate-900 antialiased;
 }
 
 a {
-  @apply text-[color:var(--color-primary)] hover:text-[color:var(--color-accent)] transition-colors;
+  @apply text-[color:var(--color-primary)] transition-colors hover:text-[color:var(--color-accent)];
 }
 
 ::-webkit-scrollbar {

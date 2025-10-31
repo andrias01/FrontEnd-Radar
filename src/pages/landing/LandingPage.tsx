@@ -2,11 +2,16 @@ import { CallToAction } from '../../components/common/CallToAction'
 import { HeroSection } from '../../components/common/HeroSection'
 import { InformativeSection } from '../../components/common/InformativeSection'
 import { RadarShowcase } from '../../components/charts/RadarShowcase'
+import { HowItWorks } from '../../components/landing/HowItWorks'
+import { ImpactHighlights } from '../../components/landing/ImpactHighlights'
+import { PartnerStrip } from '../../components/landing/PartnerStrip'
 
 export const LandingPage = (): JSX.Element => {
   return (
     <div className="space-y-0">
       <HeroSection />
+      <PartnerStrip />
+      <ImpactHighlights />
       <InformativeSection
         id="brechas"
         eyebrow="Brechas educativas"
@@ -58,6 +63,7 @@ export const LandingPage = (): JSX.Element => {
         ]}
       />
       <RadarShowcase />
+      <HowItWorks />
       <CallToAction />
     </div>
   )
