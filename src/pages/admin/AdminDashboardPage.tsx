@@ -1,8 +1,7 @@
-import { useMemo } from 'react'
-import type { ColumnDef } from '@tanstack/react-table'
+import { useEffect, useMemo, useState } from 'react'
 import { BadgeCheck, ClipboardList, Link2, Users } from 'lucide-react'
 
-import { DataTable } from '../../components/common/DataTable'
+import { DataTable, type ColumnDef } from '../../components/common/DataTable'
 import { StatCard } from '../../components/common/StatCard'
 import { mockAdminUsers, mockCompanies, mockDynamicForms, mockEvaluations } from '../../services/mockData'
 import type { User } from '../../types/auth'
@@ -15,6 +14,13 @@ const summaryStats = [
 ]
 
 export const AdminDashboardPage = (): JSX.Element => {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setLoading(false), 600)
+    return () => window.clearTimeout(timer)
+  }, [])
+
   const userColumns: ColumnDef<User>[] = useMemo(
     () => [
       {
@@ -49,7 +55,7 @@ export const AdminDashboardPage = (): JSX.Element => {
 
       <div className="grid gap-4 md:grid-cols-4">
         {summaryStats.map((stat) => (
-          <StatCard key={stat.label} label={stat.label} value={stat.value} trend={stat.trend} />
+          <StatCard key={stat.label} label={stat.label} value={stat.value} trend={stat.trend} loading={loading} />
         ))}
       </div>
 
