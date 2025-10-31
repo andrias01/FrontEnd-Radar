@@ -1,35 +1,56 @@
+import { useState } from 'react'
 import { Facebook, Github, Globe, ShieldAlert } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 
 import { SocialLoginButton } from '../../components/common/SocialLoginButton'
 import { useAuth } from '../../context/AuthContext'
-import { createZodResolver } from '../../utils/zodResolver'
 
-const loginSchema = z.object({
-  email: z.string().email({ message: 'Ingresa un correo válido' }),
-  password: z.string().min(6, { message: 'La contraseña debe tener al menos 6 caracteres' }),
-})
+type LoginFormValues = {
+  email: string
+  password: string
+}
 
-type LoginFormValues = z.infer<typeof loginSchema>
+const validateLogin = (values: LoginFormValues) => {
+  const errors: Partial<Record<keyof LoginFormValues, string>> = {}
+  const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/
+  if (!emailPattern.test(values.email.trim())) {
+    errors.email = 'Ingresa un correo válido'
+  }
+  if (values.password.trim().length < 6) {
+    errors.password = 'La contraseña debe tener al menos 6 caracteres'
+  }
+  return errors
+}
 
 export const LoginPage = (): JSX.Element => {
   const navigate = useNavigate()
   const { login } = useAuth()
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<LoginFormValues>({ resolver: createZodResolver(loginSchema) })
+  const [formValues, setFormValues] = useState<LoginFormValues>({ email: '', password: '' })
+  const [formErrors, setFormErrors] = useState<Partial<Record<keyof LoginFormValues, string>>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const onSubmit = async (values: LoginFormValues) => {
+  const handleChange = (field: keyof LoginFormValues) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormValues((prev) => ({ ...prev, [field]: event.target.value }))
+  }
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const validationErrors = validateLogin(formValues)
+    if (Object.keys(validationErrors).length > 0) {
+      setFormErrors(validationErrors)
+      return
+    }
+
+    setFormErrors({})
+    setIsSubmitting(true)
     try {
-      await login('manual', values)
+      await login('manual', formValues)
       navigate('/dashboard')
     } catch (error) {
       console.error(error)
       alert('No se pudo iniciar sesión con las credenciales ingresadas.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -80,26 +101,28 @@ export const LoginPage = (): JSX.Element => {
             o con tu correo
             <div className="h-px flex-1 bg-slate-200" />
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <form onSubmit={onSubmit} className="space-y-5">
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500">Correo</label>
               <input
                 type="email"
-                {...register('email')}
+                value={formValues.email}
+                onChange={handleChange('email')}
                 className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 focus:border-[color:var(--color-primary)] focus:outline-none"
                 placeholder="tu.correo@radar.edu"
               />
-              {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
+              {formErrors.email && <p className="mt-1 text-xs text-red-500">{formErrors.email}</p>}
             </div>
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500">Contraseña</label>
               <input
                 type="password"
-                {...register('password')}
+                value={formValues.password}
+                onChange={handleChange('password')}
                 className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 focus:border-[color:var(--color-primary)] focus:outline-none"
                 placeholder="••••••••"
               />
-              {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>}
+              {formErrors.password && <p className="mt-1 text-xs text-red-500">{formErrors.password}</p>}
             </div>
             <button
               type="submit"

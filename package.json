@@ -10,16 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tanstack/react-table": "^8.20.5",
     "axios": "^1.7.9",
     "lucide-react": "^0.548.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-hook-form": "^7.53.0",
     "react-router-dom": "^7.4.1",
     "recharts": "^3.3.0",
-    "tailwindcss": "^4.1.16",
-    "zod": "^3.24.1"
+    "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
