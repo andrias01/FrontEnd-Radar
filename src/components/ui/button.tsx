@@ -15,12 +15,13 @@ type ButtonProps = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HT
 
 const variantClasses: Record<Variant, string> = {
   default:
-    'bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-emerald-400',
-  ghost: 'bg-transparent text-emerald-600 hover:bg-emerald-50 focus-visible:ring-2 focus-visible:ring-emerald-200',
+    'bg-gradient-to-r from-[color:var(--color-primary)] via-[color:var(--color-primary-light)] to-[color:var(--color-accent)] text-white shadow-lg shadow-[color:var(--color-primary)]/30 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent)]/60',
+  ghost:
+    'bg-transparent text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary-light)]/15 focus-visible:ring-2 focus-visible:ring-[color:var(--color-primary-light)]/50',
   outline:
-    'border border-emerald-200 text-emerald-700 hover:border-emerald-400 hover:text-emerald-600 focus-visible:ring-2 focus-visible:ring-emerald-200',
+    'border border-[color:var(--color-primary-light)] text-[color:var(--color-primary-dark)] hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[color:var(--color-primary-light)]/50',
   secondary:
-    'bg-white text-emerald-700 shadow-sm hover:bg-emerald-50 focus-visible:ring-2 focus-visible:ring-emerald-200',
+    'bg-white text-[color:var(--color-primary-dark)] shadow-sm hover:bg-[color:var(--color-primary-light)]/10 focus-visible:ring-2 focus-visible:ring-[color:var(--color-primary-light)]/50',
 }
 
 const sizeClasses: Record<Size, string> = {

@@ -28,7 +28,7 @@ export const ImpactHighlights = (): JSX.Element => {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
           <div className="space-y-6">
-            <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-neutral)]/90 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-primary)] dark:bg-emerald-500/10 dark:text-[color:var(--color-accent)]">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-neutral)]/90 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-primary)] dark:bg-[color:var(--color-primary)]/10 dark:text-[color:var(--color-accent)]">
               Experiencia RADAR
             </span>
             <h2 className="text-3xl font-semibold text-slate-900 dark:text-white sm:text-4xl">Diseño cuidado para impulsar la confianza</h2>

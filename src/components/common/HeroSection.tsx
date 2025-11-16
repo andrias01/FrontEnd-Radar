@@ -68,7 +68,7 @@ const HeroPanel = () => (
         <p className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-300">Panel RADAR Insight</p>
         <p className="text-lg font-semibold text-slate-900 dark:text-white">Trimestre actual</p>
       </div>
-      <span className="rounded-full bg-[color:var(--color-primary-light)]/70 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary-dark)] dark:bg-emerald-500/20 dark:text-[color:var(--color-accent)]">
+      <span className="rounded-full bg-[color:var(--color-primary-light)]/70 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary-dark)] dark:bg-[color:var(--color-primary)]/20 dark:text-[color:var(--color-accent)]">
         Live
       </span>
     </div>
@@ -146,7 +146,7 @@ const HeroActions = () => {
         variant="secondary"
         size="lg"
         onClick={handleNotify}
-        className="w-full border border-emerald-200/70 bg-white/80 text-[color:var(--color-primary)] shadow-sm hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)] dark:border-emerald-500/40 dark:bg-slate-900/50 dark:text-[color:var(--color-accent)] sm:w-auto"
+        className="w-full border border-[color:var(--color-primary-light)]/60 bg-white/80 text-[color:var(--color-primary)] shadow-sm hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)] dark:border-[color:var(--color-primary)]/40 dark:bg-slate-900/50 dark:text-[color:var(--color-accent)] sm:w-auto"
       >
         <PlayCircle className="h-4 w-4" />
         Ver analítica
@@ -206,7 +206,7 @@ export const HeroSection = (): JSX.Element => {
           </div>
         </div>
         <div className="relative mx-auto max-w-lg sm:max-w-xl lg:mx-0">
-          <div className="absolute inset-0 hidden -translate-y-6 scale-105 rounded-[44px] bg-gradient-to-br from-white/70 via-[color:var(--color-secondary)]/20 to-transparent blur-3xl dark:from-emerald-500/10 dark:via-emerald-400/5 dark:to-transparent sm:block" />
+          <div className="absolute inset-0 hidden -translate-y-6 scale-105 rounded-[44px] bg-gradient-to-br from-white/70 via-[color:var(--color-secondary)]/20 to-transparent blur-3xl dark:from-[color:var(--color-primary)]/12 dark:via-[color:var(--color-primary-light)]/8 dark:to-transparent sm:block" />
           <HeroPanel />
         </div>
       </div>

@@ -9,7 +9,8 @@ type ToastProps = {
 }
 
 const toneStyles: Record<NonNullable<ToastProps['toasts'][number]['tone']>, string> = {
-  success: 'border-emerald-400/60 bg-white/90 text-emerald-900 dark:bg-emerald-950/80 dark:text-emerald-100',
+  success:
+    'border-[color:var(--color-primary-light)]/70 bg-white/90 text-[color:var(--color-primary-dark)] dark:border-[color:var(--color-primary)]/40 dark:bg-slate-900/80 dark:text-white',
   info: 'border-sky-400/60 bg-white/90 text-sky-900 dark:bg-sky-950/80 dark:text-sky-100',
   warning: 'border-amber-400/60 bg-white/90 text-amber-900 dark:bg-amber-950/80 dark:text-amber-100',
 }
@@ -44,7 +45,7 @@ export const ToastContainer = ({ toasts, onDismiss }: ToastProps) => {
               <button
                 type="button"
                 onClick={() => onDismiss(toast.id)}
-                className="rounded-full bg-white/70 px-3 py-1 text-xs font-semibold text-emerald-600 shadow dark:bg-slate-800/60 dark:text-emerald-200"
+                className="rounded-full bg-white/70 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)] shadow dark:bg-slate-800/60 dark:text-[color:var(--color-accent)]"
               >
                 Cerrar
               </button>

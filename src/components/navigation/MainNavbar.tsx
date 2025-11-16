@@ -34,7 +34,7 @@ export const MainNavbar = (): JSX.Element => {
       className={cn(
         'sticky top-0 z-50 border-b border-transparent backdrop-blur transition-all duration-500',
         scrolled
-          ? 'border-white/50 bg-white/90 shadow-lg shadow-emerald-500/5 dark:border-slate-800/70 dark:bg-slate-900/80'
+          ? 'border-white/50 bg-white/90 shadow-lg shadow-[color:var(--color-primary)]/5 dark:border-slate-800/70 dark:bg-slate-900/80'
           : 'bg-transparent',
       )}
       initial={{ opacity: 0, y: -20 }}
@@ -57,7 +57,7 @@ export const MainNavbar = (): JSX.Element => {
                 cn(
                   'rounded-full px-3 py-2 transition-all hover:text-[color:var(--color-primary)] dark:hover:text-[color:var(--color-accent)]',
                   isActive &&
-                    'bg-[color:var(--color-primary-light)]/50 text-[color:var(--color-primary)] shadow-sm dark:bg-emerald-500/10 dark:text-[color:var(--color-accent)]',
+                    'bg-[color:var(--color-primary-light)]/50 text-[color:var(--color-primary)] shadow-sm dark:bg-[color:var(--color-primary)]/10 dark:text-[color:var(--color-accent)]',
                 )
               }
             >
@@ -87,7 +87,7 @@ export const MainNavbar = (): JSX.Element => {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    'rounded-md px-3 py-2 transition-colors hover:bg-[color:var(--color-primary-light)]/40 dark:hover:bg-emerald-500/10',
+                    'rounded-md px-3 py-2 transition-colors hover:bg-[color:var(--color-primary-light)]/40 dark:hover:bg-[color:var(--color-primary)]/10',
                     isActive && 'text-[color:var(--color-primary)] dark:text-[color:var(--color-accent)]',
                   )
                 }
