@@ -38,7 +38,11 @@ export const AdminDashboardPage = (): JSX.Element => {
       },
       {
         header: 'Estado',
-        cell: () => <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">Activo</span>,
+        cell: () => (
+          <span className="rounded-full bg-[color:var(--color-primary-light)]/20 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary-dark)]">
+            Activo
+          </span>
+        ),
       },
     ],
     [],

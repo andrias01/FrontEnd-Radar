@@ -23,7 +23,7 @@ export const InformativeSection = ({ id, eyebrow, title, description, items }: I
       id={id}
       className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(15,155,140,0.08),_transparent_55%)] py-24 dark:bg-[radial-gradient(circle_at_top,_rgba(42,209,163,0.12),_transparent_60%)]"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-40 max-w-5xl rounded-full bg-gradient-to-b from-white/70 to-transparent blur-3xl dark:from-emerald-500/10" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-40 max-w-5xl rounded-full bg-gradient-to-b from-white/70 to-transparent blur-3xl dark:from-[color:var(--color-primary)]/10" />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wider text-[color:var(--color-primary)] dark:text-[color:var(--color-accent)]">{eyebrow}</span>

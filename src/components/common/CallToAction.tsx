@@ -15,10 +15,10 @@ export const CallToAction = (): JSX.Element => {
         transition={{ duration: 0.5 }}
       >
         <div className="relative rounded-[40px] bg-white/92 px-6 py-12 text-center shadow-xl sm:px-16 sm:py-14 dark:bg-slate-900/80">
-          <div className="absolute -top-20 right-12 hidden h-36 w-36 rounded-full bg-white/40 blur-2xl sm:block dark:bg-emerald-400/10" />
-          <div className="absolute -bottom-16 left-10 hidden h-32 w-32 rounded-full bg-[color:var(--color-primary-light)]/40 blur-2xl sm:block dark:bg-emerald-500/10" />
+          <div className="absolute -top-20 right-12 hidden h-36 w-36 rounded-full bg-white/40 blur-2xl sm:block dark:bg-[color:var(--color-primary)]/15" />
+          <div className="absolute -bottom-16 left-10 hidden h-32 w-32 rounded-full bg-[color:var(--color-primary-light)]/40 blur-2xl sm:block dark:bg-[color:var(--color-primary)]/10" />
           <div className="relative">
-            <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-neutral)]/80 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-primary)] dark:bg-emerald-500/10 dark:text-[color:var(--color-accent)]">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-neutral)]/80 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-primary)] dark:bg-[color:var(--color-primary)]/10 dark:text-[color:var(--color-accent)]">
               Listo para integrarse
             </span>
             <h2 className="mt-5 text-3xl font-semibold text-slate-900 dark:text-white sm:text-4xl">Eleva la calidad con datos accionables</h2>
@@ -32,7 +32,7 @@ export const CallToAction = (): JSX.Element => {
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full bg-white/90 text-[color:var(--color-primary)] hover:text-[color:var(--color-accent)] dark:border-emerald-500/40 dark:bg-slate-900/60 dark:text-[color:var(--color-accent)] sm:w-auto"
+                className="w-full bg-white/90 text-[color:var(--color-primary)] hover:text-[color:var(--color-accent)] dark:border-[color:var(--color-primary)]/40 dark:bg-slate-900/60 dark:text-[color:var(--color-accent)] sm:w-auto"
                 asChild
               >
                 <a href="mailto:alianzas@radar.edu">Solicitar demostración</a>
